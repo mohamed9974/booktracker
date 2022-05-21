@@ -1,0 +1,140 @@
+{
+    "description": "Books",
+    "properties": {
+        "_id": {
+            "type": "string"
+        },
+        "_partition": {
+            "default": "books",
+            "description": "The partition key",
+            "type": "string"
+        },
+        "author": {
+            "type": "string"
+        },
+        "book_id": {
+            "description": "The unique identifier for the book",
+            "type": "number"
+        },
+        "cover": {
+            "default": "http://www.example.com/cover.jpg",
+            "description": "The cover of the book",
+            "enum": [
+                "http://www.example.com/cover.jpg"
+            ],
+            "example": "http://www.example.com/cover.jpg",
+            "format": "uri",
+            "maxItems": 1,
+            "maxLength": 255,
+            "minItems": 1,
+            "minLength": 1,
+            "pattern": "^(http|https)://.*$",
+            "type": "string",
+            "uniqueItems": true
+        },
+        "editor": {
+            "description": "The editor of the book",
+            "example": "John Smith",
+            "type": "string"
+        },
+        "genre": {
+            "default": "Fiction",
+            "description": "The genre of the book",
+            "enum": [
+                "Fiction"
+            ],
+            "example": "Fiction",
+            "maxItems": 1,
+            "maxLength": 255,
+            "minItems": 1,
+            "minLength": 1,
+            "type": "string",
+            "uniqueItems": true
+        },
+        "is_Fiction": {
+            "default": true,
+            "description": "Is the book fiction?",
+            "type": "boolean"
+        },
+        "publishDate": {
+            "default": "2018-01-01",
+            "description": "The publish date of the book",
+            "enum": [
+                "2018-01-01"
+            ],
+            "example": "2018-01-01",
+            "format": "date",
+            "maxItems": 1,
+            "maxLength": 255,
+            "minItems": 1,
+            "minLength": 1,
+            "type": "string",
+            "uniqueItems": true
+        },
+        "publisher": {
+            "default": "John Smith",
+            "description": "The publisher of the book",
+            "enum": [
+                "John Smith"
+            ],
+            "example": "John Smith",
+            "maxItems": 1,
+            "maxLength": 255,
+            "minItems": 1,
+            "minLength": 1,
+            "type": "string",
+            "uniqueItems": true
+        },
+        "rating": {
+            "default": 0,
+            "description": "The rating of the book",
+            "maximum": 5,
+            "minimum": 0,
+            "type": "number"
+        },
+        "reviews": {
+            "items": {
+                "default": [
+                    {
+                        "id": 1,
+                        "review": "This is a review of the book",
+                        "reviewer": "John Smith"
+                    }
+                ],
+                "properties": {
+                    "_id": {
+                        "type": "number"
+                    },
+                    "book_id": {
+                        "type": "number"
+                    },
+                    "review": {
+                        "type": "string"
+                    },
+                    "reviewer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "book_id",
+                    "reviewer",
+                    "review"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "title": {
+            "type": "string"
+        },
+        "translator": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "_id",
+        "name"
+    ],
+    "title": "Books",
+    "type": "object"
+}

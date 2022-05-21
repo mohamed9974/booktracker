@@ -1,0 +1,90 @@
+{
+    "description": "A user",
+    "properties": {
+        "_id": {
+            "description": "The unique identifier for the user",
+            "type": "string"
+        },
+        "_partition": {
+            "description": "The partition key",
+            "type": "string"
+        },
+        "average_Rating": {
+            "default": 0,
+            "description": "The average rating of the books read by the user",
+            "maximum": 5,
+            "minimum": 0,
+            "readOnly": true,
+            "type": "number"
+        },
+        "favorite_Books": {
+            "description": "The list of favorite books",
+            "items": {
+                "properties": {
+                    "author": {
+                        "description": "The author of the book",
+                        "type": "string"
+                    },
+                    "genre": {
+                        "description": "The genre of the book",
+                        "type": "string"
+                    },
+                    "rating": {
+                        "description": "The rating of the book",
+                        "maximum": 5,
+                        "minimum": 0,
+                        "type": "number"
+                    },
+                    "title": {
+                        "description": "The title of the book",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "name": {
+            "description": "A reader's name",
+            "type": "string"
+        },
+        "number_of_Books_Read": {
+            "default": 0,
+            "description": "The number of books read by the user",
+            "minimum": 0,
+            "type": "number"
+        },
+        "reviews": {
+            "items": {
+                "properties": {
+                    "book_title": {
+                        "description": "The genre of the book",
+                        "type": "string"
+                    },
+                    "rating": {
+                        "description": "The rating of the book",
+                        "maximum": 5,
+                        "minimum": 0,
+                        "type": "number"
+                    },
+                    "reviewer": {
+                        "description": "The author of the book",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "The title of the review",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        }
+    },
+    "required": [
+        "name",
+        "number_of_Books_Read"
+    ],
+    "title": "reader",
+    "type": "object"
+}
