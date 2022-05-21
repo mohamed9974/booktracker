@@ -1,0 +1,27 @@
+{
+    "collection": "books",
+    "database": "booklib",
+    "roles": [
+        {
+            "name": "default",
+            "apply_when": {},
+            "fields": {
+                "all_Reviews": {},
+                "author": {},
+                "cover": {},
+                "editor": {},
+                "genre": {},
+                "is_Fiction": {},
+                "name": {},
+                "publisher": {},
+                "rating": {},
+                "translator": {},
+                "year": {}
+            },
+            "insert": true,
+            "delete": true,
+            "search": true,
+            "additional_fields": {}
+        }
+    ]
+}

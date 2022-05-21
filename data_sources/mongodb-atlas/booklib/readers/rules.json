@@ -1,0 +1,42 @@
+{
+    "collection": "readers",
+    "database": "booklib",
+    "roles": [
+        {
+            "name": "owner",
+            "apply_when": {
+                "readerId": "%%user.id"
+            },
+            "fields": {
+                "average_Rating": {},
+                "favorite_Books": {},
+                "number_Of_Books_Read": {},
+                "reviews": {},
+                "userName": {}
+            },
+            "read": true,
+            "write": true,
+            "insert": true,
+            "delete": true,
+            "search": true,
+            "additional_fields": {}
+        },
+        {
+            "name": "non-owner",
+            "apply_when": {},
+            "fields": {
+                "average_Rating": {},
+                "favorite_Books": {},
+                "number_Of_Books_Read": {},
+                "reviews": {},
+                "userName": {}
+            },
+            "read": true,
+            "write": false,
+            "insert": false,
+            "delete": false,
+            "search": true,
+            "additional_fields": {}
+        }
+    ]
+}
