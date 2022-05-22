@@ -1,0 +1,51 @@
+exports = async function(payload, response) {
+  
+  const id = payload.query.id || ""
+
+  const books = context.services.get("mongodb-atlas").db("booklib").collection("books");
+
+  const pipeline = [
+    {
+        $match: {
+            _id: BSON.ObjectId(id),
+        },
+    },
+          {
+              $lookup: {
+                  from: "reviews",
+                  let: {
+                      id: "$_id",
+                  },
+                  pipeline: [
+                      {
+                          $match: {
+                              $expr: {
+                                  $eq: ["$book_id", "$$id"],
+                              },
+                          },
+                      },
+                      {
+                          $sort: {
+                              date: -1,
+                          },
+                      },
+                  ],
+                  as: "reviews",
+              },
+          },
+          {
+              $addFields: {
+                  reviews: "$reviews",
+              },
+          },
+      ]
+      
+      book = await books.aggregate(pipeline).next()
+      book._id = book._id.toString()
+      
+      book.reviews.forEach(review => {
+        review.date = new Date(review.date).toString()
+        review._id = review._id.toString();
+      });
+  return book
+};

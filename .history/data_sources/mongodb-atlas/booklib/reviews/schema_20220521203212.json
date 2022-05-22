@@ -1,0 +1,36 @@
+{
+    "properties": {
+        "_id": {
+            "type": "string"
+        },
+        "_partition": {
+            "type": "string"
+        },
+        "book_id": {
+            "type": "string"
+        },
+        "book_title": {
+            "type": "string"
+        },
+        "rating": {
+            "description": "The rating of the book",
+            "maximum": 5,
+            "minimum": 0,
+            "type": "number"
+        },
+        "reviewer": {
+            "description": "The person who wrote the review",
+            "type": "string"
+        },
+        "title": {
+            "description": "The title of the review",
+            "type": "string"
+        }
+    },
+    "required": [
+        "title",
+        "rating"
+    ],
+    "title": "review",
+    "type": "object"
+}
