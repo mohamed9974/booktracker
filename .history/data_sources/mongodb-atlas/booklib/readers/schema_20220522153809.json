@@ -3,11 +3,11 @@
     "properties": {
         "_id": {
             "description": "The unique identifier for the user",
-            "bsonType": "objectId"
+            "type": "string"
         },
         "_partition": {
             "description": "The partition key",
-            "bsonType": "string"
+            "type": "string"
         },
         "average_Rating": {
             "default": 0,
@@ -15,7 +15,7 @@
             "maximum": 5,
             "minimum": 0,
             "readOnly": true,
-            "bsonType": "number"
+            "type": "number"
         },
         "favorite_Books": {
             "description": "The list of favorite books",
@@ -23,70 +23,70 @@
                 "properties": {
                     "author": {
                         "description": "The author of the book",
-                        "bsonType": "string"
+                        "type": "string"
                     },
                     "genre": {
                         "description": "The genre of the book",
-                        "bsonType": "string"
+                        "type": "string"
                     },
                     "rating": {
                         "description": "The rating of the book",
                         "maximum": 5,
                         "minimum": 0,
-                        "bsonType": "number"
+                        "type": "number"
                     },
                     "title": {
                         "description": "The title of the book",
-                        "bsonType": "string"
+                        "type": "string"
                     }
                 },
-                "bsonType": "object"
+                "type": "object"
             },
-            "bsonType": "array"
+            "type": "array"
         },
         "name": {
             "description": "A reader's name",
-            "bsonType": "string"
+            "type": "string"
         },
         "number_of_Books_Read": {
             "default": 0,
             "description": "The number of books read by the user",
             "minimum": 0,
-            "bsonType": "number"
+            "type": "number"
         },
         "reviews": {
             "items": {
                 "properties": {
                     "_id": {
                         "description": "The unique identifier for the review",
-                        "bsonType": "objectId"
+                        "type": "string"
                     },
                     "book_title": {
                         "description": "The genre of the book",
-                        "bsonType": "string"
+                        "type": "string"
                     },
                     "book_id": {
                         "description": "The title of the book",
-                        "bsonType": "string"
+                        "type": "string"
                     },
                     "rating": {
                         "description": "The rating of the book",
                         "maximum": 5,
                         "minimum": 0,
-                        "bsonType": "number"
+                        "type": "number"
                     },
                     "title": {
                         "description": "The title of the review",
-                        "bsonType": "string"
+                        "type": "string"
                     },
                     "review": {
                         "description": "The review",
-                        "bsonType": "string"
+                        "type": "string"
                     }
                 },
-                "bsonType": "object"
+                "type": "object"
             },
-            "bsonType": "array"
+            "type": "array"
         }
     },
     "required": [
@@ -94,5 +94,5 @@
         "number_of_Books_Read"
     ],
     "title": "reader",
-    "bsonType": "object"
+    "type": "object"
 }

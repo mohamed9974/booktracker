@@ -3,7 +3,7 @@
     "properties": {
         "_id": {
             "description": "The unique identifier for the user",
-            "bsonType": "objectId"
+            "bsonType": "string"
         },
         "_partition": {
             "description": "The partition key",
@@ -59,7 +59,7 @@
                 "properties": {
                     "_id": {
                         "description": "The unique identifier for the review",
-                        "bsonType": "objectId"
+                        "bsonType": "string"
                     },
                     "book_title": {
                         "description": "The genre of the book",

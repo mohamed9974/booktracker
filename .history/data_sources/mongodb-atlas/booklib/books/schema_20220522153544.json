@@ -2,7 +2,7 @@
     "description": "Books",
     "properties": {
         "_id": {
-            "bsonType": "objectId"
+            "bsonType": "string"
         },
         "_partition": {
             "default": "books",
@@ -96,7 +96,7 @@
             "items": {
                 "properties": {
                     "_id": {
-                        "bsonType": "objectId"
+                        "bsonType": "number"
                     },
                     "title": {
                         "description": "The title of the review",
