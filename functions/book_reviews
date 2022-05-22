@@ -47,5 +47,5 @@ exports = async function(payload, response) {
         review.date = new Date(review.date).toString()
         review._id = review._id.toString();
       });
-  return book
+  return book;
 };
