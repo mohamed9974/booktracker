@@ -1,0 +1,33 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "author": "",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "@jest/schemas": "28.0.2",
+    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/react": "13.2.0",
+    "@testing-library/user-event": "13.5.0",
+    "@trysound/sax": "0.2.0",
+    "ajv-formats": "2.1.1",
+    "at-least-node": "1.0.0",
+    "core-util-is": "1.0.3",
+    "crypto-browserify": "3.12.0",
+    "isarray": "1.0.0",
+    "json-schema": "0.4.0",
+    "jsonpointer": "5.0.0",
+    "lodash.sortby": "4.7.0",
+    "p-try": "2.2.0",
+    "process-nextick-args": "2.0.1",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-router-dom": "6.3.0",
+    "react-scripts": "5.0.1",
+    "require-from-string": "2.0.2",
+    "source-list-map": "2.0.1",
+    "typescript": "4.6.4",
+    "web-vitals": "2.1.4"
+  }
+}
