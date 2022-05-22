@@ -94,29 +94,31 @@
         },
         "reviews": {
             "items": {
-                "default": [
-                    {
-                        "id": 1,
-                        "review": "This is a review of the book",
-                        "reviewer": "John Smith"
-                    }
-                ],
                 "properties": {
                     "_id": {
                         "type": "number"
                     },
-                    "book_id": {
-                        "type": "number"
+                    "title": {
+                        "description": "The title of the review",
+                        "example": "This is a review of the book",
+                        "type": "string"
                     },
                     "review": {
                         "type": "string"
                     },
                     "reviewer": {
                         "type": "string"
+                    },
+                    "rating": {
+                        "default": 0,
+                        "description": "The rating of the review",
+                        "maximum": 5,
+                        "minimum": 0,
+                        "type": "number"
                     }
                 },
                 "required": [
-                    "book_id",
+                    "rating",
                     "reviewer",
                     "review"
                 ],
