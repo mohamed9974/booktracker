@@ -57,10 +57,6 @@
         "reviews": {
             "items": {
                 "properties": {
-                    "_id": {
-                        "description": "The unique identifier for the review",
-                        "type": "string"
-                    },
                     "book_title": {
                         "description": "The genre of the book",
                         "type": "string"

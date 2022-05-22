@@ -57,16 +57,8 @@
         "reviews": {
             "items": {
                 "properties": {
-                    "_id": {
-                        "description": "The unique identifier for the review",
-                        "type": "string"
-                    },
                     "book_title": {
                         "description": "The genre of the book",
-                        "type": "string"
-                    },
-                    "book_id": {
-                        "description": "The title of the book",
                         "type": "string"
                     },
                     "rating": {
@@ -75,12 +67,12 @@
                         "minimum": 0,
                         "type": "number"
                     },
-                    "title": {
-                        "description": "The title of the review",
+                    "reviewer": {
+                        "description": "The author of the book",
                         "type": "string"
                     },
-                    "review": {
-                        "description": "The review",
+                    "title": {
+                        "description": "The title of the review",
                         "type": "string"
                     }
                 },
