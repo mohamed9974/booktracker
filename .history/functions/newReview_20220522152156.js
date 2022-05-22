@@ -10,7 +10,6 @@ exports = async function(payload, response) {
             review: body.text,
             book_id: BSON.ObjectId(body.book_id),
             rating : body.rating,
-            book_title: body.book_title
 
         };
     
