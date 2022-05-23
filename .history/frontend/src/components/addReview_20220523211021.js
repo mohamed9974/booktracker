@@ -104,22 +104,6 @@ function AddReview=(props) => {
         });
     }
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      if (review._id) {
-        updateReview(event);
-      } else {
-        addReview(event);
-      }
-    }
-
-    const handleDelete = (event) => {
-      event.preventDefault();
-      deleteReview(event);
-    }
-
-    
-
 
     return (
 

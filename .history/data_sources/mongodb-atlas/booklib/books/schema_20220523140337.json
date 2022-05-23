@@ -98,7 +98,7 @@
                         "bsonType": "string"
                     },
                     "reviewer": {
-                        "bsonType": "objectId"
+                        "bsonType": "string"
                     },
                     "rating": {
                         "default": 0,

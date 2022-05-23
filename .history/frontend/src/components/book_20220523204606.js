@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";  //bootstrap
 import BookhookService from "../services/bookhook";
+import { bookstoreOM } from "../models/bookstoreOM";
+
+
 
 const Book = (props) => {
   const initialBookState = {
@@ -47,12 +50,7 @@ const Book = (props) => {
     } else if (name === "author") {
       setBook({ ...book, author: value });
     } else if (name === "rating") {
-      if (rating === 0) {
-        setBook({ ...book, rating: value });
-      } else {
-        const average_Rating = (book.rating + value) / 2;
-        setBook({ ...book, rating: average_Rating });
-      }
+      setBook({ ...book, rating: value });
     } else if (name === "description") {
       setBook({ ...book, description: value });
     }
@@ -74,9 +72,8 @@ const Book = (props) => {
     else if (name === "book_id") {
       setBook({ ...book, book_id: value });
     }
-    else if (name === "cover") {
-      setBook({ ...book, cover: value });
-    }
+  }
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -104,7 +101,6 @@ const Book = (props) => {
         });
     }
   }
-
   // loading Book with id
   const loadBook = () => {
     BookhookService.getBook(props.match.params.id)
@@ -176,6 +172,67 @@ const Book = (props) => {
         console.log(e);
       });
   }
+
+  const addReview = (event) => {
+    event.preventDefault();
+    BookhookService.createBookReview(book._id, review)
+      .then(response => {
+        setReview(response.data);
+      })
+      .catch(e => {
+        setError(e);
+      });
+    BookhookService.createReaderReview(review.reviewer, review)
+      .then(response => {
+        setReview(response.data);
+      }
+      )
+      .catch(e => {
+        setError(e);
+      }
+      );
+
+  }
+
+  const updateReview = (event) => {
+    event.preventDefault();
+    BookhookService.updateBookReview(book._id, review)
+      .then(response => {
+        setReview(response.data);
+      })
+      .catch(e => {
+        setError(e);
+      });
+    BookhookService.updateReaderReview(review.reviewer, review)
+      .then(response => {
+        setReview(response.data);
+      }
+      )
+      .catch(e => {
+        setError(e);
+      }
+      );
+
+  }
+
+  const deleteReview = (event) => {
+    event.preventDefault();
+    BookhookService.deleteReaderReview(review.reviewer, review)
+      .then(response => {
+        setReview(response.data);
+      })
+      .catch(e => {
+        setError(e);
+      });
+    BookhookService.deleteBookReview(book._id, review)
+      .then(response => {
+        setReview(response.data);
+      })
+      .catch(e => {
+        setError(e);
+      });
+  }
+
 
   useEffect(() => {
     BookhookService.getBook(props.match.params.id)
@@ -325,7 +382,7 @@ const Book = (props) => {
                       className="form-control"
                       id="review_title"
                       name="review_title"
-                      value={"please enter review title"}
+                      value={review_title}
                       onChange={handleChange}
                     />
                   </div>
@@ -336,7 +393,7 @@ const Book = (props) => {
                       className="form-control"
                       id="review_body"
                       name="review_body"
-                      value={"Please write review"}
+                      value={review_body}
                       onChange={handleChange}
                     />
                   </div>
@@ -347,7 +404,7 @@ const Book = (props) => {
                       className="form-control"
                       id="reviewer"
                       name="reviewer"
-                      value={"Please enter your name"}
+                      value={reviewer}
                       onChange={handleChange}
                     />
                   </div>
@@ -358,7 +415,7 @@ const Book = (props) => {
                       className="form-control"
                       id="rating"
                       name="rating"
-                      value={"Please enter rating"}
+                      value={rating}
                       onChange={handleChange}
                     />
                   </div>
@@ -369,7 +426,7 @@ const Book = (props) => {
                       className="form-control"
                       id="book_id"
                       name="book_id"
-                      value={this.props.match.params.book_id}
+                      value={book_id}
                       onChange={handleChange}
                     />
                   </div>

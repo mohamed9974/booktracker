@@ -63,11 +63,8 @@ class BookhookService {
     deleteBook(id) {
         return http.delete(`/bookhooks/${id}`);
     }//destructor for review
-    deleteBookReview(id, reviewId) {
-        return http.delete(`/bookhooks/${id}/reviews/${reviewId}`);
-    }
-    deleteReaderReview(id, reviewId) {
-        return http.delete(`/bookhooks/reviews/${id}/${reviewId}`);
+    deleteBookReview(id) {
+        return http.delete(`/bookhooks/${id}/reviews`);
     }
 }
 

@@ -7,7 +7,7 @@
             "bsonType": "string"
         },
         "book_id": {
-            "bsonType": "objectId"
+            "bsonType": "string"
         },
         "book_title": {
             "bsonType": "string"

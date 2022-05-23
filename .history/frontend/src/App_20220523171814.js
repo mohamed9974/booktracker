@@ -52,7 +52,7 @@ function App() {
           <Route path="/book/:id/addReview"
             render={(props) => (<AddReview {...props} user={< AddReview />} />)} />
           <Route path="/book/:id"
-            render={(props) => (<Book {...props} user={<Book/>} />)} />
+            render={(props) => (<Book {...props} user={user} />)} />
           <Route path="/login"
             render={(props) => (<Login {...props} login={<Login />} />)} />
         </Routes>

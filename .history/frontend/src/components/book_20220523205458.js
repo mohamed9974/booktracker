@@ -77,7 +77,22 @@ const Book = (props) => {
     else if (name === "cover") {
       setBook({ ...book, cover: value });
     }
-
+    else if (name === "review") {
+      setReview({ ...review, review: value });
+    }
+    else if (name === "book_title") {
+      setReview({ ...review, book_title: value });
+    }
+    else if (name === "rating") {
+      setReview({ ...review, rating: value });
+    }
+    else if (name === "reviewer") {
+      setReview({ ...review, reviewer: value });
+    }
+    else if (name === "title") {
+      setReview({ ...review, title: value });
+    }
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -176,6 +191,67 @@ const Book = (props) => {
         console.log(e);
       });
   }
+
+  const addReview = (event) => {
+    event.preventDefault();
+    BookhookService.createBookReview(book._id, review)
+      .then(response => {
+        setReview(response.data);
+      })
+      .catch(e => {
+        setError(e);
+      });
+    BookhookService.createReaderReview(review.reviewer, review)
+      .then(response => {
+        setReview(response.data);
+      }
+      )
+      .catch(e => {
+        setError(e);
+      }
+      );
+
+  }
+
+  const updateReview = (event) => {
+    event.preventDefault();
+    BookhookService.updateBookReview(book._id, review)
+      .then(response => {
+        setReview(response.data);
+      })
+      .catch(e => {
+        setError(e);
+      });
+    BookhookService.updateReaderReview(review.reviewer, review)
+      .then(response => {
+        setReview(response.data);
+      }
+      )
+      .catch(e => {
+        setError(e);
+      }
+      );
+
+  }
+
+  const deleteReview = (event) => {
+    event.preventDefault();
+    BookhookService.deleteReaderReview(review.reviewer, review)
+      .then(response => {
+        setReview(response.data);
+      })
+      .catch(e => {
+        setError(e);
+      });
+    BookhookService.deleteBookReview(book._id, review)
+      .then(response => {
+        setReview(response.data);
+      })
+      .catch(e => {
+        setError(e);
+      });
+  }
+
 
   useEffect(() => {
     BookhookService.getBook(props.match.params.id)
