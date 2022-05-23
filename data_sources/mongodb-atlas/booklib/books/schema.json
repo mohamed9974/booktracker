@@ -40,16 +40,7 @@
         "genre": {
             "default": "Fiction",
             "description": "The genre of the book",
-            "enum": [
-                "Fiction"
-            ],
-            "example": "Fiction",
-            "maxItems": 1,
-            "maxLength": 255,
-            "minItems": 1,
-            "minLength": 1,
-            "bsonType": "string",
-            "uniqueItems": true
+            "bsonType": "string"
         },
         "is_Fiction": {
             "default": true,
@@ -135,7 +126,11 @@
     },
     "required": [
         "_id",
-        "name"
+        "name",
+        "author",
+        "book_id",
+        "genre",
+        "rating"
     ],
     "title": "Books",
     "bsonType": "object"
