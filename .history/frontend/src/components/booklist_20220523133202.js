@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";  //bootstrap
 import BookhookService from "../services/bookhook";
 
@@ -142,13 +142,22 @@ const Booklist = (props) => {
                 <strong>{books.rating}</strong>
                 <strong>{books.reviews.length}</strong>
               </p>
-              <Link to={`/book/${books._id}`}>
-                <button className="btn btn-primary">View</button>
-              </Link>
-            </div>
-          </div>
+              {books.map((book, index) => {
+                return (
+                  <tr key={index}>
+                    <td>
+                      <Link to={"/book/" + book._id} className="btn btn" >{book.title}</Link>
+                    </td>
+                    <td>{book.author}</td>
+                    <td>{book.genre}</td>
+                    <td>{book.rating}</td>
+                    <image src={book.cover} alt="book" />
+                  </tr>
+                )
+              })}
         </div>
       </div>
+
     </div>
   );
 }

@@ -48,13 +48,12 @@ function App() {
       </nav>
       <div className="container mt-3">
         <Routes>
-          <Route exact path={"/"} element={<Booklist />} />
+          {/* <Route exact path={["/", "/book"]} element={Booklist} />
           <Route path="/book/:id/addReview"
-            render={(props) => (<AddReview {...props} user={< AddReview />} />)} />
+            render={(props) => (<AddReview {...props} user={user} />)} />
           <Route path="/book/:id"
-            render={(props) => (<Book {...props} user={<Book />} />)} />
-          <Route path="/login"
-            render={(props) => (<Login {...props} login={<Login />} />)} />
+            render={(props) => (<Book {...props} user={user} />)} />
+          <Route path="/login" render={(props) => (<Login {...props} login={login} />)} /> */}
         </Routes>
       </div>
     </div>

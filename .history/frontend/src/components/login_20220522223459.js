@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";  //bootstrap
 import { handleAuthRedirect } from "realm-web";
 
 
 
 function Login() {
-
+    
     // const [user, setUser] = React.useState("");
     // const [error, setError] = React.useState("");
     // const [loading, setLoading] = React.useState(false);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";  //bootstrap
 import BookhookService from "../services/bookhook";
 
@@ -129,26 +129,35 @@ const Booklist = (props) => {
         </div>
       </div>
       <div className="row">
-        <div className="col-lg-4 pb-1">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">{books.title}</h5>
-              <p className="card-text">
-                {books.description}
-                <image src={books.cover} />
-                <strong>{books.author}</strong>
-                <strong>{books.genre}</strong>
-                <strong>{books.price}</strong>
-                <strong>{books.rating}</strong>
-                <strong>{books.reviews.length}</strong>
-              </p>
-              <Link to={`/book/${books._id}`}>
-                <button className="btn btn-primary">View</button>
-              </Link>
-            </div>
-          </div>
+        <div className="col-lg-12">
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Book rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              {books.map((book, index) => {
+                return (
+                  <tr key={index}>
+                    <td>
+                      <Link to={"/book/" + book._id}>{book.title}</Link>
+                    </td>
+                    <td>{book.author}</td>
+                    <td>{book.genre}</td>
+                    <td>{book.rating}</td>
+                    <image src={book.cover} alt="book" />
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
+
     </div>
   );
 }
