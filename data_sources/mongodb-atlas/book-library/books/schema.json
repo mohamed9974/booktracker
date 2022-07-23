@@ -27,7 +27,7 @@
             "bsonType": "string"
         },
         "rating": {
-            "bsonType": "int"
+            "bsonType": "double"
         },
         "reviews": {
             "bsonType": "array",
@@ -41,7 +41,7 @@
             "description": "User's name"
         },
         "year": {
-            "bsonType": "int"
+            "bsonType": "date"
         }
     },
     "required": [
