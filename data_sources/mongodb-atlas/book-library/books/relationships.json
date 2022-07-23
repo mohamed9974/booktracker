@@ -1,8 +1,0 @@
-{
-    "reviews": {
-        "ref": "#/relationship/mongodb-atlas/book-library/reviews",
-        "source_key": "reviews",
-        "foreign_key": "_id",
-        "is_list": true
-    }
-}
