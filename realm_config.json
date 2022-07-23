@@ -1,8 +1,0 @@
-{
-    "app_id": "booktracker-nmprl",
-    "config_version": 20210101,
-    "name": "BookTracker",
-    "location": "DE-FF",
-    "deployment_model": "LOCAL",
-    "environment": "development"
-}
